@@ -18,5 +18,12 @@ script:
   - perl Makefile.PL
   - make thirdparty
   - perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate automake_app
+  - cd my-mojolicious-app
+  - ./configure
+  - make test
+  - make dist
   - perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate callbackery_app
-
+  - cd my-callbackery-app
+  - ./configure
+  - make test
+  - make dist
