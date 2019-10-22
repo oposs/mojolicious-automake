@@ -26,7 +26,4 @@ nytprof.out
 *.o
 *.bs
 /_eumm/
-public/
 /config.*
-etc/*.cfg
-/frontend/compiled/
