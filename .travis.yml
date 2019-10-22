@@ -20,12 +20,14 @@ script:
   - perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate automake_app
   - cd my-mojolicious-app
   - ./configure
+  - make
   - make test
   - make dist
   - cd ..
   - perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate callbackery_app
   - cd my-callbackery-app
-  - cp etc/*.dist etc/my-callbackery-app.cfg
+  - cp etc/my-callbackery-app.cfg.dist etc/my-callbackery-app.cfg
   - ./configure
+  - make
   - make test
   - make dist
