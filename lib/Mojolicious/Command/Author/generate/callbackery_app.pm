@@ -34,7 +34,7 @@ sub file {
         'bin/Makefile.am' => 'bin/Makefile.am',
         'thirdparty/Makefile.am' => 'thirdparty/Makefile.am',
         'etc/Makefile.am' => 'etc/Makefile.am',
-        'etc/app.cfg' => 'etc/'.$self->filename.'.cfg',
+        'etc/app.cfg' => 'etc/'.$self->filename.'.cfg.dist',
         'bin/app.pl' => 'bin/'.$self->filename.'.pl',
         'bin/source-mode.sh' => 'bin/'.$self->filename.'-source-mode.sh',
         'lib/App.pm' => 'lib/'.$self->class_path,

@@ -22,8 +22,10 @@ script:
   - ./configure
   - make test
   - make dist
+  - cd ..
   - perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate callbackery_app
   - cd my-callbackery-app
+  - cp etc/*.dist etc/my-callbackery-app.cfg
   - ./configure
   - make test
   - make dist
