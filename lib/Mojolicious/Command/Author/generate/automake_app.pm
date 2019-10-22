@@ -185,36 +185,6 @@ Mojolicious::Command::Author::generate::automake_app - Mojolicious App generator
 
 L<Mojolicious::Command::Authos::generate::automake_app> generates application directory structures for fully functional L<Mojolicious> applications.
 
-=head1 ATTRIBUTES
-
-L<Mojolicious::Command::Author::generate::automake_app> inherits all attributes from
-L<Mojolicious::Command> and implements the following new ones.
-
-=head2 description
-
-  my $description = $app->description;
-  $app            = $app->description('Foo');
-
-Short description of this command, used for the command list.
-
-=head2 usage
-
-  my $usage = $app->usage;
-  $app      = $app->usage('Foo');
-
-Usage information for this command, used for the help screen.
-
-=head1 METHODS
-
-L<Mojolicious::Command::Author::generate::automake_app> inherits all methods from
-L<Mojolicious::Command> and implements the following new ones.
-
-=head2 run
-
-  $app->run(@ARGV);
-
-Run this command.
-
 =head1 SEE ALSO
 
 L<Mojolicious>, L<https://www.gnu.org/software/automake/>.

@@ -93,19 +93,8 @@ Mojolicious::Command::Author::generate::calbackery_app - Callbackery App generat
 
 L<Mojolicious::Command::Authos::generate::callbackery_app> generates application directory structures for fully functional L<Callbackery> applications.
 
-=head1 ATTRIBUTES
-
-L<Mojolicious::Command::Author::generate::callbackery_app> inherits all attributes from
-L<Mojolicious::Command::Author::generate::automake_app>.
-
-=head1 METHODS
-
-L<Mojolicious::Command::Author::generate::callbackery_app> inherits all methods from
-L<Mojolicious::Command::Author::generate::automake_app>.
-
-
 =head1 SEE ALSO
 
-L<Mojolicious>, L<https://www.gnu.org/software/automake/>.
+L<Callbackery>, L<https://www.gnu.org/software/automake/>.
 
 =cut

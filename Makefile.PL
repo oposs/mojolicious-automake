@@ -25,7 +25,7 @@ WriteMakefile(
       repository  => 'https://github.com/oposs/mojolicious-automake',
       bugtracker  => 'https://github.com/oposs/mojolicious-automake/issues'
     },
-    no_index => {directory => ['t','example','setup','lib/Mojolicious/Command/Author/generate/callbackery_app','lib/Mojolicious/Command/Author/generate/automake_app']}
+    no_index => {directory => ['t','example','setup']}
   },
   test => {TESTS => 't/*.t'}
 );
