@@ -1,0 +1,22 @@
+sudo: false
+
+language: perl
+
+perl:
+  - "5.24"
+  - "5.26"
+  - "5.28"
+
+before_install:
+  - cpanm --notest
+    Devel::Cover::Report::Coveralls
+  - nvm install 10
+  - nvm use 10
+
+script:
+  - cover -test -report coveralls
+  - perl Makefile.PL
+  - make thirdparty
+  - perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate automake_app
+  - perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate callbackery_app
+
