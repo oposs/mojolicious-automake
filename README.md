@@ -3,13 +3,13 @@ MojoliciousAutomake
 
 [![Build Status](https://travis-ci.org/oposs/mojolicious-automake.svg?branch=master)](https://travis-ci.org/oposs/mojolicious-automake)
 
-MojoAutomake is a Mojolicious app skeleton generator which sets up
-Mojolicious Projects with automake support.
+MojoliciousAutomake is a mojolicious app skeleton generator which sets up
+mojolicious projects with automake support.
 
 Currently the following templates are supported
 
 * automake_app - a simple mojolicious app with full automake support
-* callbackery_app - a sample callbackery app
+* callbackery_app - a sample [callbackery app](https://github.com/oetiker/callbackery)
 
 Quickstart
 ----------
