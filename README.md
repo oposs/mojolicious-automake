@@ -14,18 +14,18 @@ Currently the following templates are supported
 Quickstart
 ----------
 
-Open a terminal and follow these instructions below. We have tested them on
-ubuntu but they should work on any recent linux system with at least
+Open a terminal and follow the instructions below. We have tested them on
+Ubuntu but they should work on any recent linux system with at least
 perl 5.24 installed.
 
 First make sure you have gcc, perl curl and automake installed. The following commands
-will work on debian and ubuntu. 
+will work on Debian and Ubuntu. 
 
 ```console
 sudo apt-get install curl automake perl gcc unzip libssl-dev
 ```
 
-For redhat try
+For Redhat try
 
 ```console
 sudo yum install curl automake perl-core openssl-devel gcc unzip
@@ -44,7 +44,7 @@ curl -L cpanmin.us \
   | perl - -n --no-lwp https://github.com/oposs/mojolicious-automake/archive/master.tar.gz
 ```
 
-Finally lets generate a sample application.
+Finally, lets generate a sample application.
 
 ```console
 mkdir -p ~/src
