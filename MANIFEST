@@ -23,7 +23,6 @@ lib/Mojolicious/Command/Author/generate/automake_app/lib/Makefile.am
 lib/Mojolicious/Command/Author/generate/automake_app/configure.ac
 lib/Mojolicious/Command/Author/generate/automake_app/VERSION
 lib/Mojolicious/Command/Author/generate/automake_app/thirdparty/Makefile.am
-lib/Mojolicious/Command/Author/generate/automake_app/thirdparty/Makefile.am~
 lib/Mojolicious/Command/Author/generate/automake_app/templates/example/welcome.html.ep
 lib/Mojolicious/Command/Author/generate/automake_app/templates/layouts/default.html.ep
 lib/Mojolicious/Command/Author/generate/automake_app/LICENSE
