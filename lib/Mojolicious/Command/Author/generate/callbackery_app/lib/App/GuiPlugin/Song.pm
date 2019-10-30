@@ -39,6 +39,8 @@ has screenOpts => sub {
         # and settings accordingly
         container => {
             set => {
+                # see https://www.qooxdoo.org/apps/apiviewer/#qx.ui.core.LayoutItem
+                # for inspiration in properties to set
                 maxWidth => 700,
                 maxHeight => 500,
                 alignX => 'left',
