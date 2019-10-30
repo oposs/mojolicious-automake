@@ -30,7 +30,7 @@ has screenOpts => sub {
     my $self = shift;
     my $opts = $self->SUPER::screenOpts;
     return {
-        %$opts,
+        %%$opts,
         # an alternate layout for this screen
         layout => {
             class => 'qx.ui.layout.Dock',
