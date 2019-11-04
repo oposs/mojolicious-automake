@@ -44,10 +44,10 @@ clean-local:
 
 share/messages.pot: $(PM)
 	mkdir -p share
-	$(XGETTEXT) --language=perl --package-name=$(PACKAGE) --package-version=$(VERSION) --from-code=UTF-8 --keyword=trm:1 --output=share/messages.pot $(PM)
+	LANG=en_US.UTF-8 $(XGETTEXT) --language=perl --package-name=$(PACKAGE) --package-version=$(VERSION) --from-code=UTF-8 --keyword=trm:1 --output=share/messages.pot $(PM)
 	touch share/en.po
 	for lang in share/*.po; do \
-		$(MSGMERGE) -U $$lang share/messages.pot; \
+		LANG=en_US.UTF-8 $(MSGMERGE) -U $$lang share/messages.pot; \
 	done
 % }
 

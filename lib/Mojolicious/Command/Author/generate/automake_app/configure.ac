@@ -29,10 +29,10 @@ AC_PATH_PROG(WGET, wget, no)
 % if ($package eq 'callbackery' ) {
 AC_ARG_VAR(NODE,   [Path to local node binary])
 AC_PATH_PROG(NODE, node, no)
-AC_PATH_PROG(NPM, npm, no)
-AC_PATH_PROG(NPX, npx, no)
-AC_PATH_PROG(XGETTEXT, xgettext, no)
-AC_PATH_PROG(MSGMERGE, msgmerge, no)
+AC_PATH_PROG(NPM, npm, npm-not-found)
+AC_PATH_PROG(NPX, npx, npx-not-found)
+AC_PATH_PROG(XGETTEXT, xgettext, xgettext-not-found)
+AC_PATH_PROG(MSGMERGE, msgmerge, msgmerge-not-found)
 % }
 
 
@@ -145,9 +145,10 @@ fi
 % if ($package eq 'callbackery' ) {
 AC_ARG_VAR(CALLBACKERY_QX, [Alternate CallBackery/qooxdoo folder location])
 if test "$CALLBACKERY_QX" = ""; then
-    script_path=`readlink -f "$0"`
+    script_path=`dirname "$0"`
+    script_path=`cd $script_path;pwd`
     # Absolute path this script is in, thus /home/user/bin
-    CALLBACKERY_QX=`dirname "$script_path"`/thirdparty/lib/perl5/CallBackery/qooxdoo
+    CALLBACKERY_QX="$script_path"/thirdparty/lib/perl5/CallBackery/qooxdoo
 fi
 AC_SUBST(CALLBACKERY_QX)
 % }
@@ -169,7 +170,7 @@ AC_OUTPUT
 
 % if ($package eq 'callbackery' ) {
 
-if test -z "$NODE"; then
+if [ "$NODE" = "no" ]; then
 cat <<NOTES
 
 ** WARNING ***********************************************
