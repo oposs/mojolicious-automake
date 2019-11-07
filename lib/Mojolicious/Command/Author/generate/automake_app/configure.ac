@@ -8,7 +8,7 @@ MJ_CLASS=<%= ${class} %>
 MJ_SCRIPT=<%= ${filename} %>
 % if ($package eq 'callbackery' ) {
 QX_CLASS=<%= ${class_file} %>
- %} 
+% } 
 
 AC_SUBST(MJ_CLASS)
 AC_SUBST(MJ_SCRIPT)
@@ -69,11 +69,14 @@ if test -x "$NODE"; then
   AC_MSG_CHECKING(make sure we have at least node ${ac_node_version})
   case `$NODE --version` in
   v10*)
-    AC_MSG_RESULT(ok)
+    AC_MSG_RESULT(ok v10)
+    ;;
+  v11*)
+    AC_MSG_RESULT(ok v11)
     ;;
   *)
     AC_MSG_RESULT(no);
-    NODE=
+    NODE=old-node
   esac
 fi
 
@@ -170,7 +173,9 @@ AC_OUTPUT
 
 % if ($package eq 'callbackery' ) {
 
-if [ "$NODE" = "no" ]; then
+if test -x "$NODE"; then
+:
+else
 cat <<NOTES
 
 ** WARNING ***********************************************
