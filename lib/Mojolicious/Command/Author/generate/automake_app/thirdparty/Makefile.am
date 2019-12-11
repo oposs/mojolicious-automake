@@ -10,7 +10,7 @@ EXTRA_DIST = $(THIRDPARTY_DIST) $(wildcard bin/cpanm)
 
 all-local: touch
 
-touch: cache/modules/02packages.details.txt.gz bin/cpanm
+touch: bin/cpanm cache/modules/02packages.details.txt.gz
 	$(AM_V_GEN)echo "Installing Dependencies from Cache using cpanm"
 	PERL_CPANM_HOME=$(THIRDPARTY_DIR) $(PERL) bin/cpanm -q --notest --local-lib-contained $(THIRDPARTY_DIR) --from file://$(THIRDPARTY_DIR)/cache --installdeps ..
 	$(AM_V_GEN)touch touch
