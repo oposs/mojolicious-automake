@@ -1,4 +1,4 @@
-#  Copyright (C) <%= ${year} %> <%= ${fullName} %>
+#  Copyright (C) 2017 Tobias Oetiker
 
 AUTOMAKE_OPTIONS =  foreign
 
