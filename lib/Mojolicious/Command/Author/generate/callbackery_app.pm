@@ -22,7 +22,7 @@ sub file {
     return {
         'configure.ac' => 'configure.ac',
         'bootstrap' => 'bootstrap',
-        'PERL_MODULES' => 'PERL_MODULES',
+        'cpanfile' => 'cpanfile',
         'VERSION' => 'VERSION',
         'README.md' => 'README.md',
         'AUTHORS' => 'AUTHORS',
