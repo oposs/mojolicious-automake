@@ -66,7 +66,7 @@ jobs:
       id: cpan-cache
       uses: actions/cache@v1
       with:
-        path: 3rd
+        path: thirdparty
         key: ${{ matrix.os }}-cpan-${{ matrix.perl }}-${{ hashFiles('Makefile.PL') }}
         
     - name: Prepare
