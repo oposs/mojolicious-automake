@@ -83,7 +83,7 @@ jobs:
         make dist
     - name: Build Callbackery App
       run: | 
-        perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate callbackry_app
+        perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate callbackery_app
         cd my-callbackery-app
         ./configure
         make
