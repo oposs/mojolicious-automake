@@ -43,7 +43,7 @@ jobs:
 
       fail-fast: false
 
-    name: Node-${{ matrix.node }} & Perl-${{ matrix.perl }} on ${{ matrix.os }}
+    name: N${{ matrix.node }}/P${{ matrix.perl }}/${{ matrix.os }}
     
     runs-on: ${{ matrix.os }}
 
