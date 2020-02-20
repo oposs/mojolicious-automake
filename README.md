@@ -61,4 +61,3 @@ README.md you find in the `am-app` directory.
 Enjoy
 
 Tobi Oetiker <tobi@oetiker.ch>
-
