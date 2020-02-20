@@ -7,18 +7,20 @@ if BUILD_QOOXDOO_APP
 
 all-local: build
 
-node_modules:
+nm: node_modules/.bin/qx package.json
+
+node_modules/.bin/qx:
 	$(NPM) i
 
-source: node_modules $(EXTRA_DIST)
+source: nm $(EXTRA_DIST)
 	CALLBACKERY_QX=$(CALLBACKERY_QX) $(NPX) qx compile --feedback=false --erase
 
-source-watch: node_modules $(EXTRA_DIST)
+source-watch: nm $(EXTRA_DIST)
 	CALLBACKERY_QX=$(CALLBACKERY_QX) $(NPX) qx compile --watch --feedback=false --erase
 
-build: node_modules ../public/versions.json
+build: nm ../public/versions.json
 
-clean: node_modules
+clean: nm
 	$(NPX) qx clean
 
 ../public/versions.json: $(EXTRA_DIST)
