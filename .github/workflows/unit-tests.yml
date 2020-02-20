@@ -34,6 +34,8 @@ jobs:
             perl: '5.26'
           - os: ubuntu-16.04
             perl: '5.30'
+          - os: ubuntu-16.04
+            node: '13.x'
           - os: ubuntu-18.04
             perl: '5.22'
           - os: windows-latest
@@ -43,7 +45,7 @@ jobs:
 
       fail-fast: false
 
-    name: N${{ matrix.node }}/P${{ matrix.perl }}/${{ matrix.os }}
+    name: node-${{ matrix.node }}/perl${{ matrix.perl }}/${{ matrix.os }}
     
     runs-on: ${{ matrix.os }}
 
@@ -67,7 +69,14 @@ jobs:
       uses: actions/cache@v1
       with:
         path: thirdparty
-        key: ${{ matrix.os }}-cpan-${{ matrix.perl }}-${{ hashFiles('Makefile.PL') }}
+        key: ${{ matrix.os }}-cpan-${{ matrix.perl }}-${{ hashFiles('**/Makefile.PL') }}-${{ hashFiles('**/cpanfile') }}
+
+    - name: Node Cache
+      id: node-cache
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ matrix.os }}-node-${{ matrix.node }}-${{ hashFiles('**/package.json') }}
         
     - name: Prepare
       run: perl Makefile.PL
@@ -81,6 +90,9 @@ jobs:
         perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate automake_app
         cd my-mojolicious-app
         ln -s ../../thirdparty/lib thirdparty/lib
+        mkdir -p thirdparty/carton
+        ln -s ../../../thirdparty/lib thirdparty/carton/lib
+        ln -s ../../../thirdparty/bin thirdparty/carton/bin        
         ./configure
         make
         make test
@@ -91,6 +103,12 @@ jobs:
         cd my-callbackery-app
         sudo apt-get install gettext
         ln -s ../../thirdparty/lib thirdparty/lib
+        mkdir -p thirdparty/carton
+        ln -s ../../../thirdparty/lib thirdparty/carton/lib
+        ln -s ../../../thirdparty/bin thirdparty/carton/bin
+        mkdir -p ../node_modules
+        ln -s ../../node_modules frontend/node_modules
+        
         cp etc/my-callbackery-app.dist.yaml etc/my-callbackery-app.yaml
         ./configure
         make
