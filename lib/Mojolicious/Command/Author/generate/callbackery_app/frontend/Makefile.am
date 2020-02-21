@@ -1,29 +1,37 @@
 
 AUTOMAKE_OPTIONS=foreign
 
-EXTRA_DIST = $(shell find . -type d \( -name ".??*" -o -name "complied" -o -name "node_modules" \) -prune -o -not -name ".*" -a -not -name "*~" -a -not -name "*.tmp"  -a -type f -print )
+EXTRA_DIST = compile.js  compile.json  config.json Manifest.json package.json package-lock.json $(shell find source -not -name ".*" -a -not -name "*~" -a -not -name "*.tmp"  -a -type f -print )
 
 if BUILD_QOOXDOO_APP
 
 all-local: build
 
-nm: node_modules/.bin/qx package.json
+.PHONY: source source-watch node_modules build clean
 
-node_modules/.bin/qx:
-	$(NPM) i
+node_modules: node_modules/.setup
 
-source: nm $(EXTRA_DIST)
-	CALLBACKERY_QX=$(CALLBACKERY_QX) $(NPX) qx compile --feedback=false --erase
+source: node_modules compiled/source/.built
 
-source-watch: nm $(EXTRA_DIST)
+
+source-watch: node_modules
 	CALLBACKERY_QX=$(CALLBACKERY_QX) $(NPX) qx compile --watch --feedback=false --erase
 
-build: nm ../public/versions.json
+build: node_modules ../public/.built
 
-clean: nm
+clean: node_modules
 	$(NPX) qx clean
 
-../public/versions.json: $(EXTRA_DIST)
+../public/.built: $(EXTRA_DIST) Makefile
 	CALLBACKERY_QX=$(CALLBACKERY_QX) $(NPX) qx compile --target=build --feedback=false --erase
+	touch $@
+
+compiled/source/.built: $(EXTRA_DIST) Makefile
+	CALLBACKERY_QX=$(CALLBACKERY_QX) $(NPX) qx compile --feedback=false --erase
+	touch $@
+
+node_modules/.setup: package.json
+	$(NPM) i
+	touch $@
 
 endif
