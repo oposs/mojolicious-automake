@@ -9,7 +9,7 @@ all-local: build
 
 .PHONY: source source-watch node_modules build clean
 
-node_modules: node_modules/.setup
+node_modules: package-lock.json
 
 source: node_modules compiled/source/.built
 
@@ -31,8 +31,7 @@ compiled/source/.built: $(EXTRA_DIST) Makefile
 	CALLBACKERY_QX=$(CALLBACKERY_QX) $(NPX) qx compile --feedback=false --erase
 	touch $@
 
-node_modules/.setup: package.json
+package-lock.json: package.json
 	$(NPM) i
-	touch $@
 
 endif
