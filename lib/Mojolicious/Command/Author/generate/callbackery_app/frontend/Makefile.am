@@ -33,5 +33,6 @@ compiled/source/.built: $(EXTRA_DIST) Makefile
 
 package-lock.json: package.json
 	$(NPM) i
+	touch $@
 
 endif
