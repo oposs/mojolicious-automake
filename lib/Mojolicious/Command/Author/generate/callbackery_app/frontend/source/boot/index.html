@@ -18,7 +18,6 @@
             let output = document.getElementById('op-percent');
         window.QOOXDOO_SPLASH_SCREEN = {
             loadBegin: function(callback) {
-                console.log('loading begin');/* ... snip ... */
                 callback();
                 },
 
@@ -26,15 +25,12 @@
                 output = null;
                 splash.remove();
                 splash = null;
-                console.log('loading complete removing splash');
                 callback();
             },
 
             scriptLoaded: function(options, callback) {
                 let out = 'Loading ' + Math.round(options.numScriptsLoaded/options.numScripts*100) + '% ';
                 output.innerHTML = out;
-                /* ... snip ... */
-            /* ... snip ... */
                 callback();
             },
             getSettings: function() {
@@ -46,6 +42,6 @@
   };}());
   </script>
   ${preBootJs}
-  <script type="text/javascript" src="${appPath}boot.js"></script>
+  <script type="text/javascript" src="${appPath}boot.js?release=#VERSION#"></script>
 </body>
 </html>
