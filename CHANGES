@@ -1,3 +1,7 @@
+0.4.0 2020-03-04 18:23:23 +0100 Tobias Oetiker <tobi@oetiker.ch>
+
+ - add action button property config demo (cb 0.30.0)
+
 0.3.7 2020-02-28 14:22:40 +0100 Tobias Oetiker <tobi@oetiker.ch>
 
  - add loader index.html
