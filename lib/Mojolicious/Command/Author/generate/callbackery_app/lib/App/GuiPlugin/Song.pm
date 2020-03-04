@@ -270,7 +270,7 @@ SQL
     # based on the row selected
     for my $row (@$data) {
         my $ok = true;        
-        if ($row->{song_note} ~= /protect/ and not $self->user->may('admin')){
+        if ($row->{song_note} =~ /protect/ and not $self->user->may('admin')){
              $ok = fale;
         }
         $row->{_actionSet} = {
