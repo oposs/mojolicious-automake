@@ -33,7 +33,7 @@ compiled/source/.built: $(EXTRA_DIST) Makefile.in $(CBFILES)
 	CALLBACKERY_QX=$(CALLBACKERY_QX) $(NPX) qx compile --feedback=false --erase
 	touch $@
 
-node_modules/.installed: package.json
+node_modules/.installed package-lock.json: package.json
 	$(NPM) i
 	touch $@
 
