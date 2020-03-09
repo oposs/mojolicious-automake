@@ -102,7 +102,11 @@ jobs:
 
     - name: Test
       run: |
+% if ($package eq 'callbackery' ) {
           cp etc/<%= $filename %>.dist.yaml  etc/<%= $filename %>.yaml
+% } else {
+          cp etc/<%= $filename %>.cfg.dist  etc/<%= $filename %>.cfg
+% }          
           make test
       
     - name: Dist
