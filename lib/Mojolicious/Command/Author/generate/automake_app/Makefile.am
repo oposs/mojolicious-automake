@@ -48,8 +48,9 @@ CALLBACKERY_PM := $(shell find $(CALLBACKERY_QX)/.. -name "*.pm")
 share/messages.pot: $(PM)
 	mkdir -p share
 	$(XGETTEXT) --language=perl --package-name=$(PACKAGE) --package-version=$(VERSION) --from-code=UTF-8 --keyword=trm:1 --output=share/messages.pot $(PM)
-	sed -ie 's/charset=CHARSET/charset=UTF-8/g' share/messages.pot
+	sed -i 's/; charset=CHARSET/; charset=UTF-8/' share/messages.pot
 	for lang in $(LANGUAGES); do \
+		( test -f $$lang || cp messages.pot $$lang ); \
 		$(MSGMERGE) --force-po -U $$lang share/messages.pot; \
 	done
 % }
