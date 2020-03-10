@@ -50,7 +50,7 @@ share/messages.pot: $(PM)
 	$(XGETTEXT) --language=perl --package-name=$(PACKAGE) --package-version=$(VERSION) --from-code=UTF-8 --keyword=trm:1 --output=share/messages.pot $(PM)
 	sed -ie 's/charset=CHARSET/charset=UTF-8/g' share/messages.pot
 	for lang in $(LANGUAGES); do \
-		$(MSGMERGE) -U $$lang share/messages.pot; \
+		$(MSGMERGE) --force-po -U $$lang share/messages.pot; \
 	done
 % }
 
