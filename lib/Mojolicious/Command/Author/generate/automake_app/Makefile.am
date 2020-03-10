@@ -42,7 +42,7 @@ all-local: share/messages.pot
 clean-local:
 	rm share/messages.pot
 
-LANGUAGES := $(shell  $(PERL) -e 'use JSON::PP qw(decode_json); print join(" ", map {"share/".$$_.".po"} @{decode_json(join("",<>))->{locales}})' frontend/
+LANGUAGES := $(shell  $(PERL) -e 'use JSON::PP qw(decode_json); print join(" ", map {"share/".$$_.".po"} @{decode_json(join("",<>))->{locales}})' frontend/compile.json)
 CALLBACKERY_PM := $(shell find $(CALLBACKERY_QX)/.. -name "*.pm")
 
 share/messages.pot: $(PM)
