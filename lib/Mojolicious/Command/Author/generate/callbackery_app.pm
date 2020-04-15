@@ -44,7 +44,6 @@ sub file {
         'lib/App/GuiPlugin/SongForm.pm' => 'lib/'.$self->class.'/GuiPlugin/SongForm.pm',
         'frontend/Makefile.am' => 'frontend/Makefile.am',
         'frontend/Manifest.json' => 'frontend/Manifest.json',
-        'frontend/config.json' => 'frontend/config.json',
         'frontend/compile.json' => 'frontend/compile.json',
         'frontend/compile.js' => 'frontend/compile.js',
         'frontend/package.json' => 'frontend/package.json',
