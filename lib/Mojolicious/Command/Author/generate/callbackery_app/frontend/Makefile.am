@@ -29,7 +29,7 @@ clean: node_modules
 	CALLBACKERY_QX=$(CALLBACKERY_QX) $(NPX) qx compile --target=build --feedback=false --erase
 	mkdir -p ../public/$(QX_CLASS)
 	cp -p compiled/build/$(QX_CLASS)/*.js ../public/$(QX_CLASS)
-	cp -p compiled/index.html ../public/
+	cp -p compiled/build/index.html ../public/
 	touch $@
 
 compiled/source/.built: $(EXTRA_DIST) Makefile.in $(CBFILES)
