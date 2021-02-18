@@ -107,23 +107,17 @@ has formCfg => sub {
                 structure => $decades
             }
         },
-        (exists $self->{args}{currentFormData}{song_decade} && $self->{args}{currentFormData}{song_decade}) ? {
+       {
             key               => 'song_decade_addional',
             label             => trm('Addional Decade info'),
             widget            => 'text',
             reloadOnFormReset => true,
-            set               => {
-                placeholder => '',
-                readOnly    => false,
-            },
-        } : {
-            key               => 'song_decade_addional',
-            label             => trm('Addional Decade info'),
-            widget            => 'text',
-            reloadOnFormReset => true,
-            set               => {
+            set               => $self->{args}{currentFormData}{song_decade} ? {
                 readOnly    => true,
                 placeholder => 'This field becomes available as soon you select a decade',
+            } : {
+                readOnly    => false,
+                placeholder => 'Type something extra',
             },
         },
         {
