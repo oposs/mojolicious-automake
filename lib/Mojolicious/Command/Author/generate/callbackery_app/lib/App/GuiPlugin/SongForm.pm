@@ -112,12 +112,12 @@ has formCfg => sub {
             label             => trm('Addional Decade info'),
             widget            => 'text',
             reloadOnFormReset => true,
-            set               => $self->{args}{currentFormData}{song_decade} ? {
-                readOnly    => true,
-                placeholder => 'This field becomes available as soon you select a decade',
-            } : {
+            set               => $self->args->{currentFormData}{song_decade} ?  {
                 readOnly    => false,
                 placeholder => 'Type something extra',
+            } : {
+                readOnly    => true,
+                placeholder => 'This field becomes available as soon you select a decade',
             },
         },
         {
