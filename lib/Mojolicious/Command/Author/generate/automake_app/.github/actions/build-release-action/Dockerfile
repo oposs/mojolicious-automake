@@ -1,4 +1,6 @@
-FROM ubuntu:20.04
+ARG IMAGE_VERSION_TAG
+
+FROM ubuntu:$IMAGE_VERSION_TAG
 
 LABEL maintainer="oetiker" \
       description="WG-wrangler builder"

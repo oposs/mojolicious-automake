@@ -80,17 +80,16 @@ sub file {
         'templates/example/welcome.html.ep'
             => 'templates/example/welcome.html.ep',
         't/basic.t' => 't/basic.t',
-        't/etc/app.cfg'                                         => 't/etc/' . $self->filename . '.cfg',
-        'debian/control'                                        => 'debian/control',
-        'debian/changelog'                                      => 'debian/changelog',
-        'debian/compat'                                         => 'debian/compat',
-        'debian/rules'                                          => 'debian/rules',
-        'debian/Makefile.am'                                    => 'debian/Makefile.am',
-        '.github/actions/build-release-action/action.yaml'      => '.github/actions/build-release-action/action.yaml',
-        '.github/actions/build-release-action/Dockerfile-18.04' => '.github/actions/build-release-action/Dockerfile-18.04',
-        '.github/actions/build-release-action/Dockerfile-20.04' => '.github/actions/build-release-action/Dockerfile-20.04',
-        '.github/actions/build-release-action/make-deb.sh'      => '.github/actions/build-release-action/make-deb.sh',
-        '.github/workflows/build-release.yaml'                  => '.github/workflows/build-release.yaml'
+        't/etc/app.cfg'                                    => 't/etc/' . $self->filename . '.cfg',
+        'debian/control'                                   => 'debian/control',
+        'debian/changelog'                                 => 'debian/changelog',
+        'debian/compat'                                    => 'debian/compat',
+        'debian/rules'                                     => 'debian/rules',
+        'debian/Makefile.am'                               => 'debian/Makefile.am',
+        '.github/actions/build-release-action/action.yaml' => '.github/actions/build-release-action/action.yaml',
+        '.github/actions/build-release-action/Dockerfile'  => '.github/actions/build-release-action/Dockerfile',
+        '.github/actions/build-release-action/make-deb.sh' => '.github/actions/build-release-action/make-deb.sh',
+        '.github/workflows/build-release.yaml'             => '.github/workflows/build-release.yaml'
     };
 }
 
