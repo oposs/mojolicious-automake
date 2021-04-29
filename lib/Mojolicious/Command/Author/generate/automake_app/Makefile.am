@@ -43,4 +43,4 @@ share/messages.pot: $(PM) $(CALLBACKERY_PM)
 % }
 
 test:
-	prove -w
+	$(MJ_CLASS)_CONFIG=t/etc/<%= ${filename} %>.cfg prove -w

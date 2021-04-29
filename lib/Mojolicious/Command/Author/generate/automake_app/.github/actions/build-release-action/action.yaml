@@ -1,0 +1,31 @@
+name: 'Docker release builder'
+description: 'Build release packages using a docker image'
+
+inputs:
+  docker_file:
+    description: Target Docker file to build package
+    required: true
+
+outputs:
+  package_name:
+    description: name of the generated package
+    value: ${{ steps.run.outputs.package_name }}
+
+runs:
+  using: 'composite'
+  steps:
+    - id: build
+      name: Build Docker Image
+      run: |
+        docker build \
+        -f $(pwd)/.github/actions/build-release-action/${{inputs.docker_file}} \
+        $(pwd)/.github/actions/build-release-action/ \
+        -t deb_builder:latest
+      shell: bash
+    - id: run
+      name: Run Docker Image
+      run: docker run -v $(pwd):/github/workspace --workdir /github/workspace deb_builder:latest
+      shell: bash
+
+  
+

@@ -49,37 +49,44 @@ sub rel_file {
 
 sub file {
     my $self = shift;
-   
+
     # Configure Main Dir
     return {
-        'configure.ac' => 'configure.ac',
-        'bootstrap' => 'bootstrap',
-        'cpanfile' => 'cpanfile',
-        'VERSION' => 'VERSION',
-        'README.md' => 'README.md',
-        'AUTHORS' => 'AUTHORS',
-        '.gitignore' => '.gitignore',
-        '.github/workflows/unit-tests.yaml' => '.github/workflows/unit-tests.yaml',
-        'LICENSE' => 'LICENSE',
-        'COPYRIGHT' => 'COPYRIGHT',
-        'CHANGES' => 'CHANGES',
-        'Makefile.am' => 'Makefile.am',
-        'bin/Makefile.am' => 'bin/Makefile.am',
-        'thirdparty/Makefile.am' => 'thirdparty/Makefile.am',
-        'etc/Makefile.am' => 'etc/Makefile.am',
-        'etc/app.cfg' => 'etc/'.$self->filename.'.cfg',
-        'bin/app.pl' => 'bin/'.$self->filename.'.pl',
-        'lib/App.pm' => 'lib/'.$self->class_path,
-        'lib/Makefile.am' => 'lib/Makefile.am',
-        'lib/App/Controller/Example.pm' 
-            => 'lib/'.$self->class.'/Controller/Example.pm',
-        'public/index.html' 
-            => 'public/index.html',
-        'templates/layouts/default.html.ep' 
-            => 'templates/layouts/default.html.ep',
-        'templates/example/welcome.html.ep'
-            => 'templates/example/welcome.html.ep',
-        't/basic.t' => 't/basic.t',
+        'configure.ac'                                          => 'configure.ac',
+        'bootstrap'                                             => 'bootstrap',
+        'cpanfile'                                              => 'cpanfile',
+        'VERSION'                                               => 'VERSION',
+        'README.md'                                             => 'README.md',
+        'AUTHORS'                                               => 'AUTHORS',
+        '.gitignore'                                            => '.gitignore',
+        '.github/workflows/unit-tests.yaml'                     => '.github/workflows/unit-tests.yaml',
+        'LICENSE'                                               => 'LICENSE',
+        'COPYRIGHT'                                             => 'COPYRIGHT',
+        'CHANGES'                                               => 'CHANGES',
+        'Makefile.am'                                           => 'Makefile.am',
+        'bin/Makefile.am'                                       => 'bin/Makefile.am',
+        'thirdparty/Makefile.am'                                => 'thirdparty/Makefile.am',
+        'etc/Makefile.am'                                       => 'etc/Makefile.am',
+        'etc/app.dist.cfg'                                      => 'etc/' . $self->filename . '.dist.cfg',
+        'bin/app.pl'                                            => 'bin/' . $self->filename . '.pl',
+        'lib/App.pm'                                            => 'lib/' . $self->class_path,
+        'lib/Makefile.am'                                       => 'lib/Makefile.am',
+        'lib/App/Controller/Example.pm'                         => 'lib/' . $self->class . '/Controller/Example.pm',
+        'public/index.html'                                     => 'public/index.html',
+        'templates/layouts/default.html.ep'                     => 'templates/layouts/default.html.ep',
+        'templates/example/welcome.html.ep'                     => 'templates/example/welcome.html.ep',
+        't/basic.t'                                             => 't/basic.t',
+        't/etc/app.cfg'                                         => 't/etc/' . $self->filename . '.cfg',
+        'debian/control'                                        => 'debian/control',
+        'debian/changelog'                                      => 'debian/changelog',
+        'debian/compat'                                         => 'debian/compat',
+        'debian/rules'                                          => 'debian/rules',
+        'debian/Makefile.am'                                    => 'debian/Makefile.am',
+        '.github/actions/build-release-action/action.yaml'      => '.github/actions/build-release-action/action.yaml',
+        '.github/actions/build-release-action/Dockerfile-18.04' => '.github/actions/build-release-action/Dockerfile-18.04',
+        '.github/actions/build-release-action/Dockerfile-20.04' => '.github/actions/build-release-action/Dockerfile-20.04',
+        '.github/actions/build-release-action/make-deb.sh'      => '.github/actions/build-release-action/make-deb.sh',
+        '.github/workflows/build-release.yaml'                  => '.github/workflows/build-release.yaml'
     };
 }
 
@@ -119,18 +126,19 @@ EOF
         $in =~ /email\s*=\s*(\S+)/ and $email = $1;
     }
 
-    for my $key (keys %$file){
-        $self->render_to_rel_file($key, $self->filename.'/'.$file->{$key}, {
-            class => $self->class,
-            'package' => $self->package,
-            filename => $self->filename,
-            class_file => $self->class_file,
-            class_path => $self->class_path,
-            year => (localtime time)[5]+1900,
-            email => $email,
-            fullName => $fullName,
-            userName => $userName,
-            date => strftime('%Y-%m-%d',localtime(time)),
+    for my $key (keys %$file) {
+        $self->render_to_rel_file($key, $self->filename . '/' . $file->{$key}, {
+            class        => $self->class,
+            'package'    => $self->package,
+            filename     => $self->filename,
+            class_file   => $self->class_file,
+            class_path   => $self->class_path,
+            year         => (localtime time)[5] + 1900,
+            email        => $email,
+            fullName     => $fullName,
+            userName     => $userName,
+            date         => strftime('%Y-%m-%d', localtime(time)),
+            date_rfc2822 => strftime('%a, %d %b %Y %H:%M:%S %z', localtime(time))
         });
     }
 
@@ -184,7 +192,7 @@ Mojolicious::Command::Author::generate::automake_app - Mojolicious App generator
 
 =head1 DESCRIPTION
 
-L<Mojolicious::Command::Authos::generate::automake_app> generates application directory structures for fully functional L<Mojolicious> applications.
+L<Mojolicious::Command::Author::generate::automake_app> generates application directory structures for fully functional L<Mojolicious> applications.
 
 =head1 SEE ALSO
 

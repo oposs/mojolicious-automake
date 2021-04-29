@@ -40,3 +40,7 @@ conftoools/
 frontend/node_modules/
 frontend/qx_packages/
 /configure
+debian/.debhelper
+debian/files
+debian/<%= ${class} %>
+debian/<%= ${class} %>.*

@@ -27,7 +27,7 @@ jobs:
 % if ($package eq 'callbackery' ) { 
         node:
           # - '10.x'
-          - '13.x'
+          - '12.x'
 % }
         # exclude:
           #- os: ubuntu-16.04
@@ -101,13 +101,7 @@ jobs:
       run: make
 
     - name: Test
-      run: |
-% if ($package eq 'callbackery' ) {
-          cp etc/<%= $filename %>.dist.yaml  etc/<%= $filename %>.yaml
-% } else {
-          cp etc/<%= $filename %>.cfg.dist  etc/<%= $filename %>.cfg
-% }          
-          make test
+      run: make test
       
     - name: Dist
       run: make dist
@@ -124,7 +118,7 @@ jobs:
 % if ($package eq 'callbackery' ) {
         cp etc/<%= $filename %>.dist.yaml  etc/<%= $filename %>.yaml
 % } else {
-        cp etc/<%= $filename %>.cfg.dist  etc/<%= $filename %>.cfg
+        cp etc/<%= $filename %>.dist.cfg  etc/<%= $filename %>.cfg
 % }          
         ./bin/<%= $filename %>.pl
 
