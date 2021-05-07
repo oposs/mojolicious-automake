@@ -2,8 +2,8 @@ ARG IMAGE_VERSION_TAG
 
 FROM ubuntu:$IMAGE_VERSION_TAG
 
-LABEL maintainer="oetiker" \
-      description="WG-wrangler builder"
+LABEL maintainer="<%= ${email} %>" \
+      description="<%= ${class} %> builder"
 
 
 ENV DEBIAN_FRONTEND noninteractive
