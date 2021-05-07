@@ -1,0 +1,10 @@
+Source: <%= "${filename}" %>
+Section: system
+Priority: optional
+Maintainer: <%= "${fullName} <${email}>" %>
+Build-Depends: build-essential, debhelper (>= 9)
+
+Package: <%= "${filename}" %>
+Architecture: any
+Depends: ${shlibs:Depends}, perl
+Description: <%= "${class}" %> - An awesome application!

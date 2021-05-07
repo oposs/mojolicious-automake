@@ -1,7 +1,6 @@
 <%= ${class} %>
 ===========
-Version: #VERSION#
-Date: #DATE#
+Version: #VERSION# Date: #DATE#
 
 <%= ${class} %> is a cool web application.
 
@@ -18,17 +17,15 @@ In your app source directory and start building.
 make
 ```
 
-Configure will check if all requirements are met and give
-hints on how to fix the situation if something is missing.
+Configure will check if all requirements are met and give hints on how to fix the situation if something is missing.
 
 Any missing perl modules will be downloaded and built.
 
 Development
 -----------
 
-While developing the application it is convenient to NOT have to install it
-before runnning. You can actually serve the Qooxdoo source directly
-using the built-in Mojo webserver.
+While developing the application it is convenient to NOT have to install it before runnning. You can actually serve the
+Qooxdoo source directly using the built-in Mojo webserver.
 
 ```console
 ./bin/<%= ${filename} %>-source-mode.sh
@@ -61,17 +58,29 @@ Packaging
 Before releasing, make sure to update `CHANGES`, `VERSION` and run
 `./bootstrap`.
 
-You can also package the application as a nice tar.gz file, it uses carton to
-install dependent module. If you want to make sure that your project builds with perl
-5.22, make sure to set the `PERL` environment variable to a perl 5.22
+You can also package the application as a nice tar.gz file, it uses carton to install dependent module. If you want to
+make sure that your project builds with perl 5.22, make sure to set the `PERL` environment variable to a perl 5.22
 interpreter, make sure to delete any `PERL5LIB` environment variable, and run
-`make clean && make`. This will cause a `cpanfile-5.22.1.snapshot` file to be included
-with your tar ball, when building the app this snapshot will be used to make sure
-all the right versions of the dependent modules get installed.
+`make clean && make`. This will cause a `cpanfile-5.22.1.snapshot` file to be included with your tar ball, when building
+the app this snapshot will be used to make sure all the right versions of the dependent modules get installed.
 
 ```console
 make dist
 ```
+
+Github Actions
+--------------
+
+This project has a package action (e.g to build a `.deb` package) built-in. To add your own build-pipeline, simply
+create a corresponding DockerFile under `.github/actions/build-release-action/` and register it in the strategy section
+of the `build-relase.yaml`-file. It is expected that your Docker-Pipeline returns the filename of the built package. This
+can be achieved by the following snippet at the end of your script:
+
+```text
+echo "::set-output name=package_name::$package_name"
+```
+
+The action is triggered when committing a new tag that matches this pattern: `v*`
 
 Enjoy!
 

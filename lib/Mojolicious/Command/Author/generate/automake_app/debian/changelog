@@ -1,6 +1,10 @@
 <%= "${filename} (0.0.0) unstable; urgency=medium" %>
-
-   * Initial release
+	
+   * Initial deb release
 
    -- <%= "${fullName} <${email}> ${date_rfc2822}" %>
+   
+
+
+
 

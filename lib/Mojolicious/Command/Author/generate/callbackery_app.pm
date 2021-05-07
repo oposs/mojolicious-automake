@@ -8,7 +8,7 @@ use Mojo::File;
 use POSIX qw(strftime);
 use Cwd 'getcwd';
 use File::Spec::Functions qw(catdir catfile);
-our $VERSION = '0.7.1';
+our $VERSION = '0.7.2';
 has description => 'Generate Callbackery web application with Automake';
 has usage => sub { shift->extract_usage };
 
@@ -52,6 +52,16 @@ sub file {
         'frontend/source/class/app/__init__.js' => 'frontend/source/class/'.$self->class_file.'/__init__.js',
         'frontend/source/class/app/theme/Theme.js' => 'frontend/source/class/'.$self->class_file.'/theme/Theme.js',
         't/basic.t' => 't/basic.t',
+        't/etc/app.yaml'                                         => 't/etc/' . $self->filename . '.yaml',
+        'debian/control'                                        => 'debian/control',
+        'debian/changelog'                                      => 'debian/changelog',
+        'debian/compat'                                         => 'debian/compat',
+        'debian/rules'                                          => 'debian/rules',
+        'debian/Makefile.am'                                    => 'debian/Makefile.am',
+        '.github/actions/build-release-action/action.yaml'      => '.github/actions/build-release-action/action.yaml',
+        '.github/actions/build-release-action/Dockerfile' => '.github/actions/build-release-action/Dockerfile',
+        '.github/actions/build-release-action/make-deb.sh'      => '.github/actions/build-release-action/make-deb.sh',
+        '.github/workflows/build-release.yaml'                  => '.github/workflows/build-release.yaml',
     };
 }
 
@@ -92,7 +102,7 @@ Mojolicious::Command::Author::generate::calbackery_app - Callbackery App generat
 
 =head1 DESCRIPTION
 
-L<Mojolicious::Command::Authos::generate::callbackery_app> generates application directory structures for fully functional L<Callbackery> applications.
+L<Mojolicious::Command::Authors::generate::callbackery_app> generates application directory structures for fully functional L<Callbackery> applications.
 
 =head1 SEE ALSO
 

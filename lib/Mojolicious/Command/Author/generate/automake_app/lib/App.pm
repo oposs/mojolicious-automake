@@ -7,7 +7,7 @@ sub startup {
 
   # Load configuration from hash returned by config file
   my $config = $self->plugin('Config', 
-    file => $self->home->rel_file('etc/<%= ${filename} %>.cfg')
+    file => $ENV{<%= ${class} %>_CONFIG} || $self->home->rel_file('etc/<%= ${filename} %>.cfg')
   );
 
   # Configure the application
