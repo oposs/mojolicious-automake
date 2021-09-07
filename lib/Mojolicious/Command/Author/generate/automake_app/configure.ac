@@ -71,17 +71,14 @@ if test -x "$NODE"; then
   v10*)
     AC_MSG_RESULT(ok v10)
     ;;
-  v11*)
-    AC_MSG_RESULT(ok v11)
-    ;;
   v12*)
     AC_MSG_RESULT(ok v12)
     ;;
-  v13*)
-    AC_MSG_RESULT(ok v13)
-    ;;
   v14*)
     AC_MSG_RESULT(ok v14)
+    ;;
+  v16*)
+    AC_MSG_RESULT(ok v16)
     ;;
   *)
     AC_MSG_RESULT(no);
