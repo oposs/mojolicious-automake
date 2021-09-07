@@ -80,6 +80,9 @@ if test -x "$NODE"; then
   v13*)
     AC_MSG_RESULT(ok v13)
     ;;
+  v14*)
+    AC_MSG_RESULT(ok v14)
+    ;;
   *)
     AC_MSG_RESULT(no);
     NODE=old-node
