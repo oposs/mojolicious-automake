@@ -71,6 +71,20 @@ all the right versions of the dependent modules get installed.
 make dist
 ```
 
+Github Actions
+--------------
+
+This project has a package action (e.g to build a `.deb` package) built-in. To add your own build-pipeline, simply
+create a corresponding DockerFile under `.github/actions/build-release-action/` and register it in the strategy section
+of the `build-relase.yaml`-file. It is expected that your Docker-Pipeline returns the filename of the built package. This
+can be achieved by the following snippet at the end of your script:
+
+```text
+echo "::set-output name=package_name::$package_name"
+```
+
+The action is triggered when committing a new tag that matches this pattern: `v*`
+
 Enjoy!
 
 <%= "${fullName} <${email}>" %>
