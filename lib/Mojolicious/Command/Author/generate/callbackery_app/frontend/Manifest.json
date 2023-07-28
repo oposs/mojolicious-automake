@@ -9,7 +9,7 @@
     "license" : "???",
     "authors" : [
         {
-            "name" : "<%= "${fullName}" %>",
+            "name" : "<%= ${fullName} %>",
             "email" : "<%= ${email} %>"
           }
     ],
