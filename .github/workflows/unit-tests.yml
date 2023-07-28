@@ -29,18 +29,8 @@ jobs:
           - '18.x'
  
         exclude:
-          - os: ubuntu-16.04
-            perl: '5.26'
-          - os: ubuntu-16.04
-            perl: '5.30'
-          - os: ubuntu-16.04
-            node: '13.x'
           - os: ubuntu-18.04
             perl: '5.22'
-          - os: windows-latest
-            perl: '5.22'
-          - os: windows-latest
-            perl: '5.26'
 
       fail-fast: false
 

@@ -24,9 +24,12 @@ lib/Mojolicious/Command/Author/generate/automake_app/lib/Makefile.am
 lib/Mojolicious/Command/Author/generate/automake_app/configure.ac
 lib/Mojolicious/Command/Author/generate/automake_app/VERSION
 lib/Mojolicious/Command/Author/generate/automake_app/thirdparty/Makefile.am
+lib/Mojolicious/Command/Author/generate/automake_app/public/index.html
 lib/Mojolicious/Command/Author/generate/automake_app/templates/example/welcome.html.ep
 lib/Mojolicious/Command/Author/generate/automake_app/templates/layouts/default.html.ep
 lib/Mojolicious/Command/Author/generate/automake_app/LICENSE
+lib/Mojolicious/Command/Author/generate/automake_app/t/basic.t
+lib/Mojolicious/Command/Author/generate/automake_app/.github/workflows/unit-tests.yaml
 lib/Mojolicious/Command/Author/generate/automake_app.pm
 lib/Mojolicious/Command/Author/generate/callbackery_app/.gitignore
 lib/Mojolicious/Command/Author/generate/callbackery_app/frontend/Manifest.json
@@ -47,5 +50,6 @@ lib/Mojolicious/Command/Author/generate/callbackery_app/lib/App.pm
 lib/Mojolicious/Command/Author/generate/callbackery_app/bin/source-mode.sh
 lib/Mojolicious/Command/Author/generate/callbackery_app/bin/app.pl
 lib/Mojolicious/Command/Author/generate/callbackery_app/etc/app.dist.yaml
+lib/Mojolicious/Command/Author/generate/callbackery_app/etc/Makefile.am
 lib/Mojolicious/Command/Author/generate/callbackery_app/README.md
 lib/Mojolicious/Command/Author/generate/callbackery_app.pm
