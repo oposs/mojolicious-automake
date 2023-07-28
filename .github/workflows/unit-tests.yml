@@ -110,6 +110,6 @@ jobs:
         
         cp etc/my-callbackery-app.dist.yaml etc/my-callbackery-app.yaml
         ./configure
-        make
+        make || make
         make test
         make dist    
