@@ -78,10 +78,10 @@ jobs:
       run: | 
         perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate automake_app
         cd my-mojolicious-app
-        ln -s ../../thirdparty/lib thirdparty/lib
+        ln -s ../thirdparty/lib thirdparty/lib
         mkdir -p thirdparty/carton
-        ln -s ../../../thirdparty/lib thirdparty/carton/lib
-        ln -s ../../../thirdparty/bin thirdparty/carton/bin        
+        ln -s ../thirdparty/lib thirdparty/carton/lib
+        ln -s ../thirdparty/bin thirdparty/carton/bin        
         ./configure
         make
         make test
@@ -91,13 +91,12 @@ jobs:
         perl -Ithirdparty/lib/perl5 -Ilib thirdparty/bin/mojo generate callbackery_app
         cd my-callbackery-app
         sudo apt-get install gettext
-        ln -s ../../thirdparty/lib thirdparty/lib
+        ln -s ../thirdparty/lib thirdparty/lib
         mkdir -p thirdparty/carton
-        ln -s ../../../thirdparty/lib thirdparty/carton/lib
-        ln -s ../../../thirdparty/bin thirdparty/carton/bin
+        ln -s ../thirdparty/lib thirdparty/carton/lib
+        ln -s ../thirdparty/bin thirdparty/carton/bin
         mkdir -p ../node_modules
-        ln -s ../../node_modules frontend/node_modules
-        
+        ln -s ../node_modules frontend/node_modules
         cp etc/my-callbackery-app.dist.yaml etc/my-callbackery-app.yaml
         ./configure
         make || make
