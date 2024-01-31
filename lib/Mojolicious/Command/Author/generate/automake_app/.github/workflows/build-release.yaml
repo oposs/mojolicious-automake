@@ -10,17 +10,17 @@ jobs:
       matrix:
       fail-fast: false
         include:
-          - ubuntu: 18.04
-            docker_file: Dockerfile
-            image_version_tag: '18.04'
           - ubuntu: 20.04
             docker_file: Dockerfile
-            image_version_tag: '18.04'
+            image_version_tag: '20.04'
+          - ubuntu: 22.04
+            docker_file: Dockerfile
+            image_version_tag: '22.04'
 
     runs-on: ubuntu-latest
     name: Build package defined in ${{ matrix.docker_file }} for tag {{$matrix.image_version_tag}}
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Run docker build
         id: build_package
         uses: ./.github/actions/build-release-action
@@ -34,6 +34,3 @@ jobs:
           files: ${{ github.workspace }}/${{ steps.build_package.outputs.package_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-

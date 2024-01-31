@@ -65,22 +65,16 @@ fi
 
 % if ($package eq 'callbackery' ) {
 
-ac_node_version="10"
+ac_node_version="20"
 
-if test -x "$NODE"; then
-  AC_MSG_CHECKING(make sure we have at least node ${ac_node_version})
-  case `$NODE --version` in
-  v16*)
-    AC_MSG_RESULT(ok v16)
-    ;;
-  v18*)
-    AC_MSG_RESULT(ok v18)
-    ;;
-  *)
-    AC_MSG_RESULT(no);
-    NODE=old-node
-  esac
+AC_MSG_CHECKING(for node version greater than or equal to $ac_node_version)
+if $PERL -e 'if (`'$NODE' --version` =~ /v(\d+)/ and $1 >= '$ac_node_version') { exit 1 }'; then
+   NODE=old-node-found
+   AC_MSG_RESULT(at least version ${ac_node_version} is required to re-build the fontend)   
+else
+   AC_MSG_RESULT(ok);
 fi
+
 
 AM_CONDITIONAL(BUILD_QOOXDOO_APP,[test -x $NODE])
 % }
